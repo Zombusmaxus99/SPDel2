@@ -1,0 +1,3 @@
+repository "My project (1)@Leia@cloud"
+  path "/"
+    smartbranch "/main"
