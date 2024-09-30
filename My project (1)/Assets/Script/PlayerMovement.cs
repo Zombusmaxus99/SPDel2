@@ -32,6 +32,11 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private AudioSource audioSource;
 
+
+    private float vertical;
+    private bool isLadder;
+    private bool isClimbing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +74,13 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("VerticalSpeed", rgbd.velocity.y);
         anim.SetBool("IsGrounded", CheckIfGrounded());
 
+
+        vertical = Input.GetAxis("Vertical");
+
+        if (isLadder && Mathf.Abs(vertical)> 0f)
+        {
+            isClimbing = true;
+        }
     }
 
     private void FixedUpdate()
@@ -79,6 +91,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rgbd.velocity = new Vector2(horizontalValue * moveSpeed * Time.deltaTime, rgbd.velocity.y);
+
+
+        if (isClimbing)
+        {
+            rgbd.gravityScale = 1f;
+            rgbd.velocity = new Vector2( rgbd.velocity.x , vertical * moveSpeed /30);
+        }
+        else
+        {
+            rgbd.gravityScale = 2f;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -96,6 +119,20 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Health"))
         {
             RestoreHealth(other.gameObject);
+        }
+
+        if (other.CompareTag("Ladder"))
+        {
+            isLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            isLadder = false;
+            isClimbing = false;
         }
     }
 
