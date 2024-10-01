@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform leftFoot, rightFoot;
     [SerializeField] private Transform spawnPosition;
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private AudioClip jumpSound, pickupSound, powerupSound;
+    [SerializeField] private AudioClip jumpSound, pickupSound, powerupSound, hitSound;
     [SerializeField] private GameObject melonParticles,dustParticles;
 
     [SerializeField] private Slider healthSlider;
@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Color greenHealth, redHealth;
     [SerializeField] private TMP_Text melonText;
 
+    public Transform currentSpawnPoint;
     private float horizontalValue;
     private float rayDistance = 0.25f;
     private bool isGrounded;
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        currentSpawnPoint = spawnPosition;
     }
 
 
@@ -117,6 +119,8 @@ public class PlayerMovement : MonoBehaviour
         
         currentHealth -= damageAmount;
         UpdateHealthBar();
+        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.PlayOneShot(hitSound, 0.5f);
 
         if (currentHealth <= 0)
         {
@@ -140,8 +144,8 @@ public class PlayerMovement : MonoBehaviour
     {
         currentHealth = startingHealth;
         UpdateHealthBar();
-        transform.position = spawnPosition.position;
         rgbd.velocity = Vector2.zero;
+        transform.position = currentSpawnPoint.position;
     }
 
     private void RestoreHealth(GameObject healthPickup)

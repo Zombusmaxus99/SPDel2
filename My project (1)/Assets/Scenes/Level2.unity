@@ -152,7 +152,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 4ce274ce6ace73848b7a93ff837ce969, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.19
-  m_Pitch: 0.7
+  m_Pitch: 0.75
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -9288,7 +9288,7 @@ MonoBehaviour:
   finishedText: {fileID: 2079690305}
   unfinishedText: {fileID: 1772919035}
   questGoal: 15
-  levelToLoad: 0
+  levelToLoad: 3
 --- !u!61 &205425983
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10222,6 +10222,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: upwardForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: knockbackForce
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5408151382764756034, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1627812
@@ -10999,6 +11007,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 74ef176826a50c947a1ec7abbe456499, type: 3}
   pickupSound: {fileID: 8300000, guid: 3f1b3bab709f8234096afac5a030c73e, type: 3}
   powerupSound: {fileID: 8300000, guid: 8657a87a584beb14391319db00309821, type: 3}
+  hitSound: {fileID: 8300000, guid: caf714d2b12083648b04175884c5b492, type: 3}
   melonParticles: {fileID: 2873172936194760680, guid: f869705c8ec44ff46b0fd01f525880d7, type: 3}
   dustParticles: {fileID: 8531886574930880676, guid: 79f7c30ace5c2814c8cf4f7ed41fe882, type: 3}
   healthSlider: {fileID: 1427983375}
@@ -11006,6 +11015,7 @@ MonoBehaviour:
   greenHealth: {r: 0.45665768, g: 1, b: 0.34905648, a: 1}
   redHealth: {r: 1, g: 0.2295596, b: 0.2295596, a: 1}
   melonText: {fileID: 1021615843}
+  currentSpawnPoint: {fileID: 0}
   melonsCollected: 0
 --- !u!95 &528134968
 Animator:
@@ -20887,6 +20897,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: upwardForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: knockbackForce
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5408151382764756034, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2301744
@@ -21413,6 +21431,14 @@ PrefabInstance:
       propertyPath: damageGiven
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: upwardForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: knockbackForce
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5408151382764756034, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1627812
@@ -21500,7 +21526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 728, y: 455}
+  m_AnchoredPosition: {x: 730, y: 360}
   m_SizeDelta: {x: 112.64, y: 122.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021615843
@@ -22995,6 +23021,14 @@ PrefabInstance:
     - target: {fileID: 2420780791517026674, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: upwardForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: knockbackForce
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5408151382764756034, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_LocalScale.x
@@ -24711,7 +24745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 850, y: 455}
+  m_AnchoredPosition: {x: 850, y: 365}
   m_SizeDelta: {x: 131.358, y: 142.127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2123579440
@@ -24763,6 +24797,14 @@ PrefabInstance:
     - target: {fileID: 2420780791517026674, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: upwardForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: knockbackForce
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5408151382764756034, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_LocalScale.x
@@ -24828,6 +24870,14 @@ PrefabInstance:
     - target: {fileID: 2420780791517026674, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: upwardForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: knockbackForce
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5408151382764756034, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_LocalScale.x
@@ -25240,6 +25290,14 @@ PrefabInstance:
     - target: {fileID: 2420780791517026674, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: upwardForce
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916571132270818191, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
+      propertyPath: knockbackForce
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5408151382764756034, guid: 44c64b0616e727e4696c36af46e503e3, type: 3}
       propertyPath: m_LocalScale.x
