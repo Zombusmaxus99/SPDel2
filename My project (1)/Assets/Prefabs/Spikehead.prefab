@@ -168,13 +168,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1099132245281722451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb6d82f6c31210644a9c9b6e9bbce359, type: 3}
+  m_Script: {fileID: 11500000, guid: 821f2cb52135b9540aea97cd22e5a753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageGiven: 1
   speed: 1
   range: 30
-  checkDelay: 1
+  checkDelay: 6
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
