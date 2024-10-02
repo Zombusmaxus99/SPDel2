@@ -230,7 +230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  bounciness: 150
-  knockbackForce: 200
+  knockbackForce: 150
   upwardForce: 100
   damageGiven: 1
